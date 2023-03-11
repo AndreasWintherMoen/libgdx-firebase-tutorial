@@ -11,7 +11,7 @@ public class IOSLauncher extends IOSApplication.Delegate {
     @Override
     protected IOSApplication createApplication() {
         IOSApplicationConfiguration config = new IOSApplicationConfiguration();
-        return new IOSApplication(new FirebaseTutorial(), config);
+        return new IOSApplication(new FirebaseTutorial(new IosAPI()), config);
     }
 
     public static void main(String[] argv) {

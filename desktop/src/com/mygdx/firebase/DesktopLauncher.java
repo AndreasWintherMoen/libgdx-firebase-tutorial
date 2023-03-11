@@ -11,6 +11,6 @@ public class DesktopLauncher {
 		config.setForegroundFPS(60);
 		config.setWindowedMode(1200, 800);
 		config.setTitle("Firebase Tutorial");
-		new Lwjgl3Application(new FirebaseTutorial(), config);
+		new Lwjgl3Application(new FirebaseTutorial(new DesktopAPI()), config);
 	}
 }

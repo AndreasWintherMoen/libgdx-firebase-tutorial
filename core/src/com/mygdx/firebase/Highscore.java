@@ -5,17 +5,18 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
 public class Highscore {
     private ArrayList<Score> highscores = new ArrayList<>();
     private BitmapFont font;
+    private API api;
 
-    public Highscore() {
+
+    public Highscore(API api) {
+        this.api = api;
         font = new BitmapFont();
         font.getData().setScale(2f);
-        highscores = fetchHighscores();
-        Collections.sort(highscores);
+        fetchHighscores();
     }
 
     public void render(SpriteBatch batch) {
@@ -27,19 +28,13 @@ public class Highscore {
         }
     }
 
-    // TODO: Implement this
-    private ArrayList<Score> fetchHighscores() {
-        System.out.println("Fetching highscores");
-        ArrayList<Score> newHighscores = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            newHighscores.add(new Score(0, "AAA"));
-        }
-        return newHighscores;
+    private void fetchHighscores() {
+        this.highscores.clear();
+        api.getHighscores(this.highscores);
     }
 
-    // TODO: Implement this
     public void submitHighscore(String name, int score) {
-        System.out.println("Submitting highscore");
+        api.submitHighscore(new Score(score, name));
     }
 
 }

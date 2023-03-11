@@ -20,11 +20,17 @@ public class FirebaseTutorial extends ApplicationAdapter {
 	private Highscore highscore;
 	private boolean showEndScreen = false;
 
+	API api;
+
+	public FirebaseTutorial(API api) {
+		this.api = api;
+	}
+
 	@Override
 	public void create () {
 		new ScoreManager();
 		new TimerManager(10f);
-		highscore = new Highscore();
+		highscore = new Highscore(api);
 		batch = new SpriteBatch();
 		scoreFont = new BitmapFont();
 		timerFont = new BitmapFont();
