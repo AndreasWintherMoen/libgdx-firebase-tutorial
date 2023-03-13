@@ -9,9 +9,9 @@
    - In _buildscripts dependencies_: `classpath 'com.google.gms:google-services:4.3.15'`
    - In _android project_: `apply plugin: 'com.google.gms.google-services'`
    - In _android project dependencies_: `implementation platform('com.google.firebase:firebase-bom:31.2.3')` and `implementation 'com.google.firebase:firebase-database'`
-5. Add a realtime database to your Firebase project. Either select default location (us-central) or one closer (e.g. europe-west). Note: if you don't use the default, you will have to provide the database URL when running `FirebaseDatabase.getInstance();`.
-6. Set read and write rules to _true_. Authenticating database access is beyond the scope of this project.
-7. Add _android.useAndroidX=true_ to your _gradle.properties_ file.
+5. Add _android.useAndroidX=true_ to your _gradle.properties_ file.
+6. Add a realtime database to your Firebase project. Either select default location (us-central) or one closer (e.g. europe-west). Note: if you don't use the default, you will have to provide the database URL when running `FirebaseDatabase.getInstance();`.
+7. Set read and write rules to _true_. Authenticating database access is beyond the scope of this project.
 8. Create an _Api_ interface in the _core_ module and a platform specific implementation in each other module. You can follow [this](https://libgdx.com/wiki/app/interfacing-with-platform-specific-code) LibGDX guide.
 9. In the Android implementation, read from and write to the database as shown in the [Firebase docs](https://firebase.google.com/docs/database/android/start#java). For the other platforms (particularly the desktop application) you won't be able to communicate with Firebase. There is a [cross-platform API](https://github.com/mk-5/gdx-fireapp) for this purpose, but it doesn't seem to work with desktop launcher either. If you find a good way of doing this, please let us know :)
 10. Good luck with your semester project!
